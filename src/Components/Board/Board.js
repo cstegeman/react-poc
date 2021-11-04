@@ -52,7 +52,7 @@ class Board extends React.Component {
 
   play(location) {
     const context = new AudioContext();
-    fetch("/audio/" + location)
+    fetch("/audio/" + location, { cache: "force-cache"})
       .then((response) => response.arrayBuffer())
       .then((arrayBuffer) => context.decodeAudioData(arrayBuffer))
       .then((audioBuffer) => {
