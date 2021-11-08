@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Board from "./components/Board";
+import Main from "./components/Main";
 
 function App() {
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          <Board />
+          <Main />
         </Route>
       </Switch>
     </Router>
