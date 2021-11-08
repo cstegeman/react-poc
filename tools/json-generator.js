@@ -14,12 +14,11 @@ const getAllFiles = function (dirPath) {
                 name: file,
                 sounds: getAllFiles(dirPath + "/" + file)
             })
-        } else {
-            return ({
-              title: getFileTitle(`${dirPath}/${file}`),
-              name: file,
-            });
         }
+        return ({
+          title: getFileTitle(`${dirPath}/${file}`),
+          name: file,
+        });
     })
 }
 
@@ -38,5 +37,4 @@ const result = getAllFiles(INPUT)
 
 fs.writeFileSync(OUTPUT + '/sounds.json', JSON.stringify(result, null, 2));
 
-console.log(result)
-console.log('All done!'); // eslint-disable-line no-console
+console.log('All done!');
