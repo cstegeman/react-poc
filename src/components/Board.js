@@ -1,3 +1,5 @@
+import './Board.css';
+
 const files = [
   {
     title: "mastermovies nichtrijder",
@@ -83,9 +85,11 @@ const Board = () => {
           <section>
             <h2>{file.title}</h2>
             <hr />
-            {file.sounds.map((sound) => {
-              return <button>{sound.title}</button>;
-            })}
+            <div className="buttons">
+              {file.sounds.map((sound) => {
+                return <button>{sound.title}</button>;
+              })}
+            </div>
           </section>
         );
       })}

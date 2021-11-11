@@ -22,3 +22,7 @@ body {
 h1, main {
   margin-bottom: 16px;
 }
+
+h2:first-letter {
+  text-transform: uppercase;
+}
