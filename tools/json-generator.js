@@ -11,7 +11,7 @@ const getAllFiles = function (dirPath) {
         if (fs.statSync(dirPath + "/" + file).isDirectory()) {
             return ({
                 title: file.replace('-', ' '),
-                name: file,
+                category: file,
                 sounds: getAllFiles(dirPath + "/" + file)
             })
         }
