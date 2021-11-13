@@ -2,12 +2,12 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Board from "./Board";
 
-const Main = () => {
+const Main = ({ files }) => {
   return (
     <>
       <Header />
       <main>
-        <Board />
+        <Board files={files} />
       </main>
       <Footer />
     </>
