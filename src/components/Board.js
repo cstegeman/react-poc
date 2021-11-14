@@ -2,9 +2,8 @@ import "./Board.css";
 
 const context = new AudioContext();
 // let speed = 1;
-// let backwards = false;
 
-const Board = ({ files }) => {
+const Board = ({ files, reversePlayback }) => {
   return (
     <>
       {files.map((file, index) => {
@@ -29,21 +28,42 @@ const Board = ({ files }) => {
       })}
     </>
   );
+
+  /**
+   * @param {string} category
+   * @param {string} name
+   */
+  function play(category, name) {
+    fetch(`/audio/${category}/${name}`)
+        .then((response) => response.arrayBuffer())
+        .then((response) => context.decodeAudioData(response, onDecoded));
+  }
+
+  /**
+   * @param buffer
+   */
+  function onDecoded(buffer) {
+    const bufferSource = context.createBufferSource();
+    reverseChannels(buffer);
+    bufferSource.buffer = buffer;
+    bufferSource.connect(context.destination);
+    // bufferSource.playbackRate.value = speed;
+    bufferSource.start();
+  }
+
+  /**
+   * @param buffer
+   * @returns {*}
+   */
+  function reverseChannels (buffer) {
+    if(!reversePlayback) {
+      return buffer;
+    }
+    for(let i = 0; i < buffer.numberOfChannels; i++) {
+      buffer.getChannelData(i).reverse();
+    }
+    return buffer;
+  }
 };
-
-function play(category, name) {
-  fetch(`/audio/${category}/${name}`)
-    .then((response) => response.arrayBuffer())
-    .then((response) => context.decodeAudioData(response, onDecoded));
-}
-
-function onDecoded(buffer) {
-  const bufferSource = context.createBufferSource();
-  // reverseChannels(buffer, backwards);
-  bufferSource.buffer = buffer;
-  bufferSource.connect(context.destination);
-  // bufferSource.playbackRate.value = speed;
-  bufferSource.start();
-}
 
 export default Board;
