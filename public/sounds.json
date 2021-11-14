@@ -1,6 +1,6 @@
 [
   {
-    "title": "mastermovies a-beam",
+    "title": "Mastermovies - A Beam",
     "category": "mastermovies-a-beam",
     "sounds": [
       {
@@ -18,10 +18,6 @@
       {
         "title": "Dit is het plan",
         "name": "dit-is-het-plan.mp3"
-      },
-      {
-        "title": "Hier AB je negergun",
-        "name": "hier-ab-je-negergun.mp3"
       },
       {
         "title": "Ik ben een kok",
@@ -44,7 +40,7 @@
         "name": "nokke-nou-kut.mp3"
       },
       {
-        "title": "Ultr moluculaire",
+        "title": "Ultra moluculaire",
         "name": "ultra-moleculaire.mp3"
       },
       {
@@ -58,7 +54,7 @@
     ]
   },
   {
-    "title": "mastermovies arie-en-bastiaan",
+    "title": "Mastermovies - Arie en Bastiaan",
     "category": "mastermovies-arie-en-bastiaan",
     "sounds": [
       {
@@ -152,7 +148,7 @@
     ]
   },
   {
-    "title": "mastermovies nichtrijder",
+    "title": "Mastermovies - Nichtrijder",
     "category": "mastermovies-nichtrijder",
     "sounds": [
       {
@@ -212,7 +208,7 @@
         "name": "moaan-wat-heb-ik-da-gemist-zeg.mp3"
       },
       {
-        "title": "Naah, dan tonie, klootviool",
+        "title": "Naah,  dan tonie,  klootviool",
         "name": "naah-dan-tonie-klootviool.-later.mp3"
       },
       {
