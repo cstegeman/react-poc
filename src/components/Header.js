@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const Header = ({ reversePlayback, onChange }) => {
   return (
     <header>
