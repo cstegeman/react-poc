@@ -6,12 +6,6 @@ hr {
     margin: 4px 0 16px;
 }
 
-.buttons {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
 button {
     line-height: 2;
     padding: 0 10px;

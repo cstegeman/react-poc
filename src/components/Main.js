@@ -5,16 +5,20 @@ import { useState } from "react";
 
 const Main = ({ files }) => {
   const [reversePlayback, setReversePlayback] = useState(false);
-    const [playSpeed, setPlaySpeed] = useState(false);
+  const [playSpeed, setPlaySpeed] = useState(1);
 
   return (
     <>
       <Header
         reversePlayback={reversePlayback}
-        onChange={(event) => setReversePlayback(event.target.checked)}
+        playSpeed={playSpeed}
+        onChangeReversePlayback={(event) =>
+          setReversePlayback(event.target.checked)
+        }
+        onChangePlaySpeed={(event) => setPlaySpeed(Number(event.target.value))}
       />
       <main>
-        <Board files={files} reversePlayback={reversePlayback} />
+        <Board files={files} reversePlayback={reversePlayback} playSpeed={playSpeed} />
       </main>
       <Footer />
     </>
