@@ -1,7 +1,7 @@
 import "./Board.css";
 import { play } from "../utils/audio";
 
-const Board = ({ files, reversePlayback, playSpeed }) => {
+const Board = ({ files, reversePlayback, playSpeed, enableDelay }) => {
   return (
     <>
       {files.map((file, index) => {
@@ -14,7 +14,15 @@ const Board = ({ files, reversePlayback, playSpeed }) => {
                 return (
                   <button
                     key={i}
-                    onClick={() => play(file.category, sound.name, playSpeed, reversePlayback)}
+                    onClick={() =>
+                      play(
+                        file.category,
+                        sound.name,
+                        playSpeed,
+                        reversePlayback,
+                        enableDelay
+                      )
+                    }
                   >
                     {sound.title}
                   </button>
