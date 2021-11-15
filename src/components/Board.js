@@ -1,6 +1,5 @@
 import "./Board.css";
-
-const context = new AudioContext();
+import { play } from "../utils/audio";
 
 const Board = ({ files, reversePlayback, playSpeed }) => {
   return (
@@ -15,7 +14,7 @@ const Board = ({ files, reversePlayback, playSpeed }) => {
                 return (
                   <button
                     key={i}
-                    onClick={() => play(file.category, sound.name)}
+                    onClick={() => play(file.category, sound.name, playSpeed, reversePlayback)}
                   >
                     {sound.title}
                   </button>
@@ -27,42 +26,6 @@ const Board = ({ files, reversePlayback, playSpeed }) => {
       })}
     </>
   );
-
-  /**
-   * @param {string} category
-   * @param {string} name
-   */
-  function play(category, name) {
-    fetch(`/audio/${category}/${name}`)
-      .then((response) => response.arrayBuffer())
-      .then((response) => context.decodeAudioData(response, onDecoded));
-  }
-
-  /**
-   * @param buffer
-   */
-  function onDecoded(buffer) {
-    const bufferSource = context.createBufferSource();
-    reverseChannels(buffer);
-    bufferSource.buffer = buffer;
-    bufferSource.connect(context.destination);
-    bufferSource.playbackRate.value = playSpeed;
-    bufferSource.start();
-  }
-
-  /**
-   * @param buffer
-   * @returns {*}
-   */
-  function reverseChannels(buffer) {
-    if (!reversePlayback) {
-      return buffer;
-    }
-    for (let i = 0; i < buffer.numberOfChannels; i++) {
-      buffer.getChannelData(i).reverse();
-    }
-    return buffer;
-  }
 };
 
 export default Board;
