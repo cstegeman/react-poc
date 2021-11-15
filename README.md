@@ -22,3 +22,8 @@ Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.
+
+### `npm run generate`
+
+Script that generate a `sounds.json` file in the public folder.\
+Put the desired audio files in a sub folder of `/public/audio`. directories need to be url proof and files need to have correct id3 tags with at least a title and album name.
