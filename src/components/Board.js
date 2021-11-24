@@ -1,4 +1,3 @@
-import "./Board.css";
 import { play } from "../utils/audio";
 
 const Board = ({ files, reversePlayback, playSpeed, enableDelay }) => {
