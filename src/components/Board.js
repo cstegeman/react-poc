@@ -1,4 +1,4 @@
-import { play } from "../utils/audio";
+import { play } from '../utils/audio';
 
 const Board = ({ files, reversePlayback, playSpeed, enableDelay }) => {
   return (
@@ -14,13 +14,7 @@ const Board = ({ files, reversePlayback, playSpeed, enableDelay }) => {
                   <button
                     key={i}
                     onClick={() =>
-                      play(
-                        file.category,
-                        sound.name,
-                        playSpeed,
-                        reversePlayback,
-                        enableDelay
-                      )
+                      play(file.category, sound.name, playSpeed, reversePlayback, enableDelay)
                     }
                   >
                     {sound.title}

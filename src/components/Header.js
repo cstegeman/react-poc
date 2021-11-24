@@ -1,9 +1,9 @@
-import ReverseField from "./ReverseField";
-import SpeedSelection from "./SpeedSelection";
-import DelayField from "./DelayField";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import AppBar from "@mui/material/AppBar";
+import ReverseField from './ReverseField';
+import SpeedSelection from './SpeedSelection';
+import DelayField from './DelayField';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import AppBar from '@mui/material/AppBar';
 
 const Header = ({
   reversePlayback,
@@ -11,7 +11,7 @@ const Header = ({
   enableDelay,
   onChangeReversePlayback,
   onChangePlaySpeed,
-  onChangeDelay,
+  onChangeDelay
 }) => {
   return (
     <>
@@ -24,10 +24,7 @@ const Header = ({
       </AppBar>
       <div className="flex flex--wrap gap-x--4 gap-y--2">
         <div>
-          <ReverseField
-            reversePlayback={reversePlayback}
-            onChange={onChangeReversePlayback}
-          />
+          <ReverseField reversePlayback={reversePlayback} onChange={onChangeReversePlayback} />
         </div>
         <div>
           <DelayField enableDelay={enableDelay} onChange={onChangeDelay} />
