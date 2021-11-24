@@ -1,9 +1,9 @@
-import Tuna from "tunajs";
+import Tuna from 'tunajs';
 
 const context = new AudioContext();
 const tuna = new Tuna(context);
 const delay = new tuna.Delay({
-  delayTime: 300,
+  delayTime: 300
 });
 
 /**
@@ -15,13 +15,13 @@ const delay = new tuna.Delay({
  */
 export function play(category, name, playSpeed, reversePlayback, enableDelay) {
   fetch(`/audio/${category}/${name}`)
-    .then((response) => response.arrayBuffer())
-    .then((response) =>
-      context.decodeAudioData(response, (buffer) =>
+    .then(response => response.arrayBuffer())
+    .then(response =>
+      context.decodeAudioData(response, buffer =>
         onDecoded(buffer, playSpeed, reversePlayback, enableDelay)
       )
     )
-    .catch((error) => console.warn(error));
+    .catch(error => console.warn(error));
 }
 
 /**

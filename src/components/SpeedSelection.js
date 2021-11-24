@@ -1,48 +1,44 @@
 const options = [
   {
-    name: "playSpeed",
+    name: 'playSpeed',
     value: 0.25,
-    label: "0.25",
+    label: '0.25'
   },
   {
-    name: "playSpeed",
+    name: 'playSpeed',
     value: 0.5,
-    label: "0.50",
+    label: '0.50'
   },
   {
-    name: "playSpeed",
+    name: 'playSpeed',
     value: 0.75,
-    label: "0.75",
+    label: '0.75'
   },
   {
-    name: "playSpeed",
+    name: 'playSpeed',
     value: 1,
-    label: "Normal",
+    label: 'Normal'
   },
   {
-    name: "playSpeed",
+    name: 'playSpeed',
     value: 1.25,
-    label: "1.25",
+    label: '1.25'
   },
   {
-    name: "playSpeed",
+    name: 'playSpeed',
     value: 1.5,
-    label: "1.50",
+    label: '1.50'
   },
   {
-    name: "playSpeed",
+    name: 'playSpeed',
     value: 1.75,
-    label: "1.75",
-  },
+    label: '1.75'
+  }
 ];
 
 const SpeedSelection = ({ playSpeed, onChange }) => {
   return (
-    <div
-      className="flex flex--wrap gap--3"
-      role="group"
-      aria-labelledby="speed-title"
-    >
+    <div className="flex flex--wrap gap--3" role="group" aria-labelledby="speed-title">
       <span className="grow--1" id="speed-title">
         Speed:
       </span>
@@ -58,7 +54,7 @@ const SpeedSelection = ({ playSpeed, onChange }) => {
                 id={id}
                 checked={option.value === playSpeed}
                 onChange={onChange}
-              />{" "}
+              />{' '}
               <label htmlFor={id}>{option.label}</label>
             </div>
           );
