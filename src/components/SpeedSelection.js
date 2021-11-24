@@ -1,3 +1,5 @@
+import { Grid } from '@mui/material';
+
 const options = [
   {
     name: 'playSpeed',
@@ -38,29 +40,31 @@ const options = [
 
 const SpeedSelection = ({ playSpeed, onChange }) => {
   return (
-    <div className="flex flex--wrap gap--3" role="group" aria-labelledby="speed-title">
-      <span className="grow--1" id="speed-title">
+    <Grid container role="group" aria-labelledby="speed-title">
+      <Grid item xs="auto" id="speed-title">
         Speed:
-      </span>
-      <div className="flex flex--wrap gap--3">
-        {options.map((option, index) => {
-          const id = `${option.name}-${index}`;
-          return (
-            <div key={index}>
-              <input
-                type="radio"
-                name={option.name}
-                value={option.value}
-                id={id}
-                checked={option.value === playSpeed}
-                onChange={onChange}
-              />{' '}
-              <label htmlFor={id}>{option.label}</label>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+      </Grid>
+      <Grid item xs="auto">
+        <Grid container>
+          {options.map((option, index) => {
+            const id = `${option.name}-${index}`;
+            return (
+              <Grid item xs="auto" key={index}>
+                <input
+                  type="radio"
+                  name={option.name}
+                  value={option.value}
+                  id={id}
+                  checked={option.value === playSpeed}
+                  onChange={onChange}
+                />{' '}
+                <label htmlFor={id}>{option.label}</label>
+              </Grid>
+            );
+          })}
+        </Grid>
+      </Grid>
+    </Grid>
   );
 };
 

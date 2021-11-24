@@ -2,23 +2,20 @@ import * as React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Main from './components/Main';
 import { useEffect, useState } from 'react';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseLine from '@mui/material/CssBaseline';
 
 function App() {
   const [files, setFiles] = useState([]);
 
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-
   const theme = React.useMemo(
     () =>
       createTheme({
         palette: {
-          mode: prefersDarkMode ? 'dark' : 'light'
+          mode: 'dark'
         }
       }),
-    [prefersDarkMode]
+    []
   );
 
   useEffect(() => {
