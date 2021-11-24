@@ -1,9 +1,15 @@
+import { Checkbox, FormControlLabel, FormGroup } from '@mui/material';
+
 const DelayField = ({ enableDelay, onChange }) => {
   return (
-    <>
-      <input type="checkbox" id="delay" checked={enableDelay} onChange={onChange} />{' '}
-      <label htmlFor="delay">Delay</label>
-    </>
+    <FormGroup>
+      <FormControlLabel
+        control={<Checkbox />}
+        label="Delay"
+        checked={enableDelay}
+        onChange={onChange}
+      />
+    </FormGroup>
   );
 };
 

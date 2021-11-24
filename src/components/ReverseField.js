@@ -1,9 +1,10 @@
+import { Checkbox, FormControlLabel, FormGroup } from '@mui/material';
+
 const ReverseField = ({ reversePlayback, onChange }) => {
   return (
-    <>
-      <input type="checkbox" id="reverse" checked={reversePlayback} onChange={onChange} />{' '}
-      <label htmlFor="reverse">Reverse playback</label>
-    </>
+      <FormGroup>
+        <FormControlLabel control={<Checkbox />} label="Reverse playback" checked={reversePlayback} onChange={onChange} />
+      </FormGroup>
   );
 };
 

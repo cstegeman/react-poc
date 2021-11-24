@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
 
 const options = [
   {
@@ -40,31 +40,24 @@ const options = [
 
 const SpeedSelection = ({ playSpeed, onChange }) => {
   return (
-    <Grid container role="group" aria-labelledby="speed-title">
-      <Grid item xs="auto" id="speed-title">
-        Speed:
-      </Grid>
-      <Grid item xs="auto">
-        <Grid container>
-          {options.map((option, index) => {
-            const id = `${option.name}-${index}`;
-            return (
-              <Grid item xs="auto" key={index}>
-                <input
-                  type="radio"
-                  name={option.name}
-                  value={option.value}
-                  id={id}
-                  checked={option.value === playSpeed}
-                  onChange={onChange}
-                />{' '}
-                <label htmlFor={id}>{option.label}</label>
-              </Grid>
-            );
-          })}
-        </Grid>
-      </Grid>
-    </Grid>
+    <FormControl component="fieldset" sx={{ mt: 1 }}>
+      <FormLabel component="legend">Speed</FormLabel>
+      <RadioGroup row aria-label="gender" name="row-radio-buttons-group">
+        {options.map((option, index) => {
+          return (
+            <FormControlLabel
+              key={index}
+              value={option.value}
+              control={<Radio />}
+              label={option.label}
+              name={option.name}
+              checked={option.value === playSpeed}
+              onChange={onChange}
+            />
+          );
+        })}
+      </RadioGroup>
+    </FormControl>
   );
 };
 

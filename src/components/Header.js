@@ -1,7 +1,7 @@
 import ReverseField from './ReverseField';
 import SpeedSelection from './SpeedSelection';
 import DelayField from './DelayField';
-import { AppBar, Grid, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, Grid, Toolbar, Typography } from '@mui/material';
 
 const Header = ({
   reversePlayback,
@@ -20,17 +20,17 @@ const Header = ({
           </Typography>
         </Toolbar>
       </AppBar>
-      <Grid container spacing={1} sx={{ mt: 1, pl:2, pr: 2 }}>
-        <Grid item xs="auto">
-          <ReverseField reversePlayback={reversePlayback} onChange={onChangeReversePlayback} />
+      <Box sx={{ mt: 1, pl:2, pr: 2 }}>
+        <Grid container spacing={1}>
+          <Grid item xs="auto">
+            <ReverseField reversePlayback={reversePlayback} onChange={onChangeReversePlayback} />
+          </Grid>
+          <Grid item xs="auto">
+            <DelayField enableDelay={enableDelay} onChange={onChangeDelay} />
+          </Grid>
         </Grid>
-        <Grid item xs="auto">
-          <DelayField enableDelay={enableDelay} onChange={onChangeDelay} />
-        </Grid>
-        <Grid item xs="auto">
-          <SpeedSelection playSpeed={playSpeed} onChange={onChangePlaySpeed} />
-        </Grid>
-      </Grid>
+        <SpeedSelection playSpeed={playSpeed} onChange={onChangePlaySpeed} />
+      </Box>
     </>
   );
 };
