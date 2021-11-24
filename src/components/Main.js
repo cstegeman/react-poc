@@ -1,7 +1,7 @@
 import Header from './Header';
-import Footer from './Footer';
 import Board from './Board';
 import { useState } from 'react';
+import { Box } from '@mui/material';
 
 const Main = ({ files }) => {
   const [reversePlayback, setReversePlayback] = useState(false);
@@ -18,15 +18,15 @@ const Main = ({ files }) => {
         onChangePlaySpeed={event => setPlaySpeed(Number(event.target.value))}
         onChangeDelay={event => setDelay(event.target.checked)}
       />
-      <main>
+      <Box component="main" sx={{ pl: 2, pr: 2 }}>
         <Board
           files={files}
           reversePlayback={reversePlayback}
           playSpeed={playSpeed}
           enableDelay={enableDelay}
         />
-      </main>
-      <Footer />
+      </Box>
+      <Box component="footer" sx={{ mt: 3, pl: 2, pr: 2, pb: 2 }}>&copy; Copyright 2021</Box>
     </>
   );
 };

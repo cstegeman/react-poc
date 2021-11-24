@@ -11,24 +11,22 @@ const Board = ({ files, reversePlayback, playSpeed, enableDelay }) => {
               {file.title}
             </Typography>
             <Divider variant="middle" />
-            <Box sx={{ mt: 2 }}>
-              <Grid container spacing={1}>
-                {file.sounds.map((sound, i) => {
-                  return (
-                    <Grid item xs="auto" key={i}>
-                      <Button
-                        variant="contained"
-                        onClick={() =>
-                          play(file.category, sound.name, playSpeed, reversePlayback, enableDelay)
-                        }
-                      >
-                        {sound.title}
-                      </Button>
-                    </Grid>
-                  );
-                })}
-              </Grid>
-            </Box>
+            <Grid container spacing={1} sx={{ mt: 1 }}>
+              {file.sounds.map((sound, i) => {
+                return (
+                  <Grid item xs="auto" key={i}>
+                    <Button
+                      variant="contained"
+                      onClick={() =>
+                        play(file.category, sound.name, playSpeed, reversePlayback, enableDelay)
+                      }
+                    >
+                      {sound.title}
+                    </Button>
+                  </Grid>
+                );
+              })}
+            </Grid>
           </Box>
         );
       })}
