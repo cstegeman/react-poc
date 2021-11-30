@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './components/Main';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseLine from '@mui/material/CssBaseline';
@@ -31,13 +31,11 @@ class App extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <CssBaseLine enableColorScheme={true} />
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <Main files={this.state.files} />
-            </Route>
-          </Switch>
-        </Router>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Main files={this.state.files} />} />
+          </Routes>
+        </BrowserRouter>
       </ThemeProvider>
     );
   }
