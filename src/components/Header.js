@@ -3,14 +3,7 @@ import SpeedSelection from './SpeedSelection';
 import DelayField from './DelayField';
 import { AppBar, Box, Grid, Toolbar, Typography } from '@mui/material';
 
-const Header = ({
-  reversePlayback,
-  playSpeed,
-  enableDelay,
-  onChangeReversePlayback,
-  onChangePlaySpeed,
-  onChangeDelay
-}) => {
+const Header = () => {
   return (
     <>
       <AppBar position="static">
@@ -20,16 +13,16 @@ const Header = ({
           </Typography>
         </Toolbar>
       </AppBar>
-      <Box sx={{ mt: 1, pl:2, pr: 2 }}>
+      <Box sx={{ mt: 1, pl: 2, pr: 2 }}>
         <Grid container spacing={1}>
           <Grid item xs="auto">
-            <ReverseField reversePlayback={reversePlayback} onChange={onChangeReversePlayback} />
+            <ReverseField />
           </Grid>
           <Grid item xs="auto">
-            <DelayField enableDelay={enableDelay} onChange={onChangeDelay} />
+            <DelayField />
           </Grid>
         </Grid>
-        <SpeedSelection playSpeed={playSpeed} onChange={onChangePlaySpeed} />
+        <SpeedSelection />
       </Box>
     </>
   );
