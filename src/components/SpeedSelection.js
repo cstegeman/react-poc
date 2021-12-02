@@ -1,4 +1,6 @@
 import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSpeed } from '../features/speedSlice';
 
 const options = [
   {
@@ -38,7 +40,10 @@ const options = [
   }
 ];
 
-const SpeedSelection = ({ playSpeed, onChange }) => {
+const SpeedSelection = () => {
+  const playSpeed = useSelector(state => state.speed.value);
+  const dispatch = useDispatch();
+
   return (
     <FormControl component="fieldset" sx={{ mt: 1 }}>
       <FormLabel component="legend">Speed</FormLabel>
@@ -52,7 +57,7 @@ const SpeedSelection = ({ playSpeed, onChange }) => {
               label={option.label}
               name={option.name}
               checked={option.value === playSpeed}
-              onChange={onChange}
+              onChange={event => dispatch(setSpeed(Number(event.target.value)))}
             />
           );
         })}

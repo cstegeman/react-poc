@@ -1,7 +1,12 @@
 import { play } from '../utils/audio';
 import { Box, Button, Divider, Grid, Typography } from '@mui/material';
+import { useSelector } from 'react-redux';
 
-const Board = ({ files, reversePlayback, playSpeed, enableDelay }) => {
+const Board = ({ files }) => {
+  const reversePlayback = useSelector(state => state.reverse.value);
+  const playSpeed = useSelector(state => state.speed.value);
+  const enableDelay = useSelector(state => state.delay.value);
+
   return (
     <>
       {files.map((file, index) => {
