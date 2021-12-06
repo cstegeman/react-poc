@@ -1,6 +1,7 @@
 import Header from './Header';
 import Board from './Board';
 import { Box } from '@mui/material';
+import PropTypes from 'prop-types';
 
 const Main = ({ files }) => {
   return (
@@ -15,5 +16,9 @@ const Main = ({ files }) => {
     </>
   );
 };
+
+Main.propTypes = {
+  files: PropTypes.arrayOf(PropTypes.object)
+}
 
 export default Main;
