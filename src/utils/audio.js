@@ -1,4 +1,3 @@
-// @ts-ignore
 import Tuna from 'tunajs';
 
 const context = new AudioContext();
@@ -7,13 +6,14 @@ const delay = new tuna.Delay({
   delayTime: 300
 });
 
-export function play(
-  category: string,
-  name: string,
-  playSpeed: number,
-  reversePlayback: boolean,
-  enableDelay: boolean
-) {
+/**
+ * @param {string} category
+ * @param {string} name
+ * @param {number} playSpeed
+ * @param {boolean} reversePlayback
+ * @param {boolean} enableDelay
+ */
+export function play(category, name, playSpeed, reversePlayback, enableDelay) {
   fetch(`/audio/${category}/${name}`)
     .then(response => response.arrayBuffer())
     .then(response =>
@@ -24,7 +24,13 @@ export function play(
     .catch(error => console.warn(error));
 }
 
-function onDecoded(buffer: AudioBuffer, playSpeed: number, reversePlayback: boolean, enableDelay: boolean) {
+/**
+ * @param buffer
+ * @param {number} playSpeed
+ * @param {boolean} reversePlayback
+ * @param {boolean} enableDelay
+ */
+function onDecoded(buffer, playSpeed, reversePlayback, enableDelay) {
   const bufferSource = context.createBufferSource();
   reverseChannels(buffer, reversePlayback);
   bufferSource.buffer = buffer;
@@ -37,7 +43,12 @@ function onDecoded(buffer: AudioBuffer, playSpeed: number, reversePlayback: bool
   bufferSource.start();
 }
 
-function reverseChannels(buffer: AudioBuffer, reversePlayback: boolean) {
+/**
+ * @param buffer
+ * @param {boolean} reversePlayback
+ * @returns {*}
+ */
+function reverseChannels(buffer, reversePlayback) {
   if (!reversePlayback) {
     return buffer;
   }
