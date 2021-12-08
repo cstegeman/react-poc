@@ -1,6 +1,7 @@
 import { play } from '../utils/audio';
 import { Box, Button, Divider, Grid, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types'
 
 const Board = ({ files }) => {
   const reversePlayback = useSelector(state => state.reverse.value);
@@ -38,5 +39,9 @@ const Board = ({ files }) => {
     </>
   );
 };
+
+Board.propTypes = {
+  files: PropTypes.arrayOf(PropTypes.object)
+}
 
 export default Board;
